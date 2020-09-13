@@ -1,0 +1,8 @@
+#!/bin/bash
+# Disable the module making installable: False
+# use: travis_disable_module <module>
+
+set -e
+echo "==== Disabling module $1 ===="
+sed  -i  "s/'installable': True/'installable': False/" ${TRAVIS_BUILD_DIR}/$1/__manifest__.py
+set +e
